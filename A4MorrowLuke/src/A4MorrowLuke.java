@@ -36,72 +36,38 @@ class Controller{
 
         int numPrograms = fileReader.nextInt();
 
-        String variableName = fileReader.next();
-        if(fileReader.next()!="="){//next item should be =
-            throw new NumberFormatException("missing or misplaced assignment operator '='");
-        }
-        try{
-            String firstRightVariable = fileReader.next();
-            int firstRightConstant = Integer.parseInt(firstRightVariable);//try and do this
-
-            String operator = fileReader.next();// should be +, -, *, or /
-
-            String secondRightVariable = fileReader.next();
-            int secondRightConstant = Integer.parseInt(secondRightVariable);//try and do this again
-        }catch(NumberFormatException e)
     }
 
     public void processLine(String s){
         Scanner lineReader = new Scanner(s);
-        String variableName = lineReader.next();
+        String variableName = lineReader.next();//first token
+        String firstRightVariable;
         String operator;
         String secondRightVariable;
-        String firstRightVariable;
         int firstRightConstant;
         int secondRightConstant;
+
         if(!variableName.equals("Q")) {
-            if (!fileReader.next().equals("=")) {//next item should be =
-                throw new NumberFormatException("missing or misplaced assignment operator '='");
-            }
-            try {
-                firstRightVariable = fileReader.next();
-                firstRightConstant = Integer.parseInt(firstRightVariable);
+            if(!lineReader.next().equals("=")){throw new NumberFormatException("Incorrect placement of assignment operator");}
+            firstRightVariable = fileReader.next();//first RHS item
+            operator = fileReader.next();//the operator
+            secondRightVariable = fileReader.next();//the second RHS item
 
-                if (fileReader.hasNext()) {
-                    //item 1 is a CONSTANT
-                    operator = fileReader.next();// should be +, -, *, or /
+            if(operator==null){
+                try{
+                    firstRightConstant = Integer.parseInt(firstRightVariable);
 
-
-                    try {//try to parse item 2
-                        secondRightVariable = fileReader.next();
-                        secondRightConstant = Integer.parseInt(secondRightVariable);
-                        //second item is a CONSTANT
-
-                    } catch (NumberFormatException e) {
-                        //use BST
-                        //item 2 is a VARIABLE
-                    }
+                    //the input is a single constant assignment
+                    mainTable.insert(variableName, firstRightConstant);
+                }catch(NumberFormatException e){
+                    //search for the RHS item and duplicate its value in variableName's spot
+                    mainTable.insert(variableName, mainTable.search(firstRightVariable));
                 }
-            } catch (NumberFormatException e) {
-                if (fileReader.hasNext()) {
-                    //use BST
-                    //item 1 is a VARIABLE
-                    operator = fileReader.next();// should be +, -, *, or /
-                    try {
-                        secondRightVariable = fileReader.next();
-                        secondRightConstant = Integer.parseInt(secondRightVariable);
+            }else{//there are 2 items
 
-                        //item 2 is a CONSTANT
-                    } catch (NumberFormatException e) {
-                        //use BST
-                        //item 2 is a VARIABLE
-                    }
-                }
+
             }
-        }else{
-
-
-
+        }else{//final line in program
             //END OF PROGRAM PROCESSING
             mainTable = new Table();
         }
@@ -138,7 +104,7 @@ class Table{
         root = null;
     }
 
-    public Node search(String key){
+    public int search(String key){
 
     }
 
