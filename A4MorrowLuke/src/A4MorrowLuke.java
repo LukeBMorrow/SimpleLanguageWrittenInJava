@@ -64,13 +64,41 @@ class Controller{
                     mainTable.insert(variableName, mainTable.search(firstRightVariable));
                 }
             }else{//there are 2 items
+                try{
+                    firstRightConstant = mainTable.search(firstRightVariable);
+                    secondRightConstant = Integer.parseInt(secondRightVariable);
 
+
+
+                }catch(NumberFormatException e){
+
+
+                }
 
             }
         }else{//final line in program
             //END OF PROGRAM PROCESSING
             mainTable = new Table();
         }
+    }
+
+    public int operatorProcessing(int a, int b, String operator){
+        int result = Integer.MAX_VALUE;//will return MIN_VALUE if operation failed
+        switch(operator) {
+            case "+":
+                result = a+b;
+                break;
+            case "-":
+                result = a-b;
+                break;
+            case "*":
+                result = a*b;
+                break;
+            case "/":
+                result = a/b;//SHOULD I BE A DOUBLE?
+                break;
+        }
+        return result;
     }
 }
 
