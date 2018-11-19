@@ -8,79 +8,116 @@
     REMARKS:
  */
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.io.File;
 
 public class A4MorrowLuke {
 
     public static void main(String[] args) {
-        // write your code here
+        Controller head = new Controller();
+        head.processFile();
+        System.out.println("Program ended normally.");
     }
 
 
 }
 
 class Controller {
-    Scanner fileReader;
-    Table mainTable;
+    private Scanner fileReader;
+    private Table mainTable;
+    private String errors = "";
 
     public Controller() {
         Scanner inputReader = new Scanner(System.in);
-        System.out.println("Please enter the name of the Lenert program text file:\n ");
-        String fileName = inputReader.nextLine();
-        fileReader = new Scanner(fileName);
+        System.out.println("COMP 2140 Assignment 4: Executing Lenert Programs\n" +
+                "-------------------------------------------------\n");
+        System.out.println("Please enter the input file name (.txt files only):\n ");
+        File fileName = new File(inputReader.next());
+        System.out.println("\n\n");
+        try {
+            fileReader = new Scanner(fileName);
+        } catch (FileNotFoundException e) {
+            System.out.println("Failed to open file: " + e);
+        }
         mainTable = new Table();
     }
 
-    public void processFile() throws NumberFormatException {
-
+    public void processFile() {
         int numPrograms = fileReader.nextInt();
+        fileReader.nextLine();
+
+        String line = fileReader.nextLine();
+        for (int i = 0; i < numPrograms; i++) {
+            System.out.println("\nLenert Program " + (i+1) +
+                    "-----------------");
+            do {
+                processLine(line);
+                line = fileReader.nextLine();
+            } while (!line.equals("Q"));
+            System.out.println("Error Messages: \n" + errors);
+            System.out.println("Final values of the variables: \n\n");
+            mainTable.printTable();
+            mainTable = new Table();
+            errors = "";
+        }
+
 
     }
 
-    public void processLine(String s) {
-        Scanner lineReader = new Scanner(s);
-        String variableName = lineReader.next();//first token
-        String firstString;
-        String operator;
-        String secondString;
-        int result;
-        int firstConstant = Integer.MIN_VALUE;
-        int secondConstant = Integer.MIN_VALUE;
+    private void processLine(String s) {
+        String[] variables = s.split(" ");
+        if(variables.length>2) {
+            ValueNamePair temp;
+            boolean errorFound = false;
+            String variableName = variables[0];//first token
+            String firstString = variables[2];
+            int result = 0;
+            int firstConstant = Integer.MAX_VALUE;
+            int secondConstant = 0;
 
 
-        if (!variableName.equals("Q")) {
-            if (!lineReader.next().equals("=")) {
-                throw new NumberFormatException("Incorrect placement of assignment operator");
+            if (!variables[1].equals("=")) {
+                errors += "Incorrect placement of assignment operator\n";
             }
-            firstString = fileReader.next();//first RHS item
-            operator = fileReader.next();//the operator
-            secondString = fileReader.next();//the second RHS item
-
             try {
                 firstConstant = Integer.parseInt(firstString);//turn string into number
             } catch (NumberFormatException e1) {    //firstRightVariable is a key
-                firstConstant = mainTable.search(firstString).value;//turn key into number
+                temp = mainTable.search(firstString);//turn key into number
+                if (temp == null) {
+                    errors += "uses variable before its declaration. \n";
+                    errorFound = true;
+                } else {
+                    firstConstant = temp.value;
+                }
             }
-            if (operator != null) {//2 item line
+            if (variables.length > 3) {
+                String operator = variables[3];
+                String secondString = variables[4];//second token
                 try {
                     secondConstant = Integer.parseInt(secondString);//turn string into number
                 } catch (NumberFormatException e1) {    //secondRightVariable is a key
-                    secondConstant = mainTable.search(secondString).value;//turn key into number
+                    temp = mainTable.search(secondString);//turn key into number
+                    if (temp == null) {//turn key into number
+                        errors += "uses variable before its declaration. \n";
+                        errorFound = true;
+                    } else {
+                        secondConstant = temp.value;
+                    }
                 }
-                result = operatorProcessing(firstConstant, secondConstant, operator);
+                if (!errorFound) {
+                    result = operatorProcessing(firstConstant, secondConstant, operator);
+                }
             } else {
                 result = firstConstant;
             }
-            mainTable.insert(variableName, result);
-        } else {//final line in program
-            //END OF PROGRAM PROCESSING
-
-            mainTable.printTable();
-            mainTable = new Table();
+            if (!errorFound && result != Integer.MAX_VALUE) {
+                mainTable.insert(variableName, result);
+            }
         }
     }
 
-    public int operatorProcessing(int a, int b, String operator) {
+    private int operatorProcessing(int a, int b, String operator) {
         int result = Integer.MAX_VALUE;//will return MIN_VALUE if operation failed
         switch (operator) {
             case "+":
@@ -96,6 +133,9 @@ class Controller {
                 result = a / b;//SHOULD I BE A DOUBLE?
                 break;
         }
+        if (result == Integer.MAX_VALUE) {
+            errors += "invalid mathematical operator '" + operator + "'\n";
+        }
         return result;
     }
 }
@@ -109,6 +149,10 @@ class Node {
         this.data = data;
         left = null;
         right = null;
+    }
+
+    public String toString() {
+        return (data.name + ":\t" + data.value + "\n");
     }
 
     /*a block of getters and setters*/
@@ -143,8 +187,8 @@ class Table {
 
     public ValueNamePair search(String key) {
         Node curr = root;
-        while (curr != null && curr.getData().name.compareTo(key)!=0) {
-            if (curr.getData().name.compareTo(key)<0) {
+        while (curr != null && curr.getData().name.compareTo(key) != 0) {
+            if (curr.getData().name.compareTo(key) < 0) {
                 curr = curr.getLeft();
             } else {
                 curr = curr.getRight();
@@ -164,33 +208,45 @@ class Table {
         if (root == null) {
             root = new Node(new ValueNamePair(value, name));
         } else {
-            while (curr != null && curr.getData().name.compareTo(name)!=0) {
-                if (curr.getData().name.compareTo(name)<0) {
+            while (curr != null && curr.getData().name.compareTo(name) != 0) {
+                prev = curr;
+                if (curr.getData().name.compareTo(name) < 0) {
                     curr = curr.getLeft();
                 } else {
                     curr = curr.getRight();
                 }
             }
             if (curr == null) {
-                if (prev.getData().name.compareTo(name)>0) {
+                if (prev.getData().name.compareTo(name) < 0) {
                     prev.setLeft(new Node(new ValueNamePair(value, name)));
                 } else {
                     prev.setRight(new Node(new ValueNamePair(value, name)));
                 }
+            }else{
+                curr.getData().value = value;
             }
         }
     }
 
     public void printTable() {
+        printTable(root);
+    }
 
+    private void printTable(Node curr) {
+        if (curr != null) {
+            printTable(curr.getLeft());
+            System.out.println(curr);
+            printTable(curr.getRight());
+        }
     }
 }
 
-class ValueNamePair{
+class ValueNamePair {
     public int value;
     public String name;
-    public ValueNamePair(int value, String name){
-        this.value=value;
-        this.name=name;
+
+    public ValueNamePair(int value, String name) {
+        this.value = value;
+        this.name = name;
     }
 }
