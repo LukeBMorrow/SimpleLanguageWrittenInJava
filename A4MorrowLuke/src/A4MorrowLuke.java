@@ -13,17 +13,17 @@ import java.util.Scanner;
 public class A4MorrowLuke {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
     }
 
 
 }
 
-class Controller{
+class Controller {
     Scanner fileReader;
     Table mainTable;
 
-    public Controller(){
+    public Controller() {
         Scanner inputReader = new Scanner(System.in);
         System.out.println("Please enter the name of the Lenert program text file:\n ");
         String fileName = inputReader.nextLine();
@@ -31,113 +31,166 @@ class Controller{
         mainTable = new Table();
     }
 
-    public void processFile() throws NumberFormatException
-    {
+    public void processFile() throws NumberFormatException {
 
         int numPrograms = fileReader.nextInt();
 
     }
 
-    public void processLine(String s){
+    public void processLine(String s) {
         Scanner lineReader = new Scanner(s);
         String variableName = lineReader.next();//first token
-        String firstRightVariable;
+        String firstString;
         String operator;
-        String secondRightVariable;
-        int firstRightConstant;
-        int secondRightConstant;
-
-        if(!variableName.equals("Q")) {
-            if(!lineReader.next().equals("=")){throw new NumberFormatException("Incorrect placement of assignment operator");}
-            firstRightVariable = fileReader.next();//first RHS item
-            operator = fileReader.next();//the operator
-            secondRightVariable = fileReader.next();//the second RHS item
-
-            if(operator==null){
-                try{
-                    firstRightConstant = Integer.parseInt(firstRightVariable);
-
-                    //the input is a single constant assignment
-                    mainTable.insert(variableName, firstRightConstant);
-                }catch(NumberFormatException e){
-                    //search for the RHS item and duplicate its value in variableName's spot
-                    mainTable.insert(variableName, mainTable.search(firstRightVariable));
-                }
-            }else{//there are 2 items
-                try{
-                    firstRightConstant = mainTable.search(firstRightVariable);
-                    secondRightConstant = Integer.parseInt(secondRightVariable);
+        String secondString;
+        int result;
+        int firstConstant = Integer.MIN_VALUE;
+        int secondConstant = Integer.MIN_VALUE;
 
 
-
-                }catch(NumberFormatException e){
-
-
-                }
-
+        if (!variableName.equals("Q")) {
+            if (!lineReader.next().equals("=")) {
+                throw new NumberFormatException("Incorrect placement of assignment operator");
             }
-        }else{//final line in program
+            firstString = fileReader.next();//first RHS item
+            operator = fileReader.next();//the operator
+            secondString = fileReader.next();//the second RHS item
+
+            try {
+                firstConstant = Integer.parseInt(firstString);//turn string into number
+            } catch (NumberFormatException e1) {    //firstRightVariable is a key
+                firstConstant = mainTable.search(firstString).value;//turn key into number
+            }
+            if (operator != null) {//2 item line
+                try {
+                    secondConstant = Integer.parseInt(secondString);//turn string into number
+                } catch (NumberFormatException e1) {    //secondRightVariable is a key
+                    secondConstant = mainTable.search(secondString).value;//turn key into number
+                }
+                result = operatorProcessing(firstConstant, secondConstant, operator);
+            } else {
+                result = firstConstant;
+            }
+            mainTable.insert(variableName, result);
+        } else {//final line in program
             //END OF PROGRAM PROCESSING
+
+            mainTable.printTable();
             mainTable = new Table();
         }
     }
 
-    public int operatorProcessing(int a, int b, String operator){
+    public int operatorProcessing(int a, int b, String operator) {
         int result = Integer.MAX_VALUE;//will return MIN_VALUE if operation failed
-        switch(operator) {
+        switch (operator) {
             case "+":
-                result = a+b;
+                result = a + b;
                 break;
             case "-":
-                result = a-b;
+                result = a - b;
                 break;
             case "*":
-                result = a*b;
+                result = a * b;
                 break;
             case "/":
-                result = a/b;//SHOULD I BE A DOUBLE?
+                result = a / b;//SHOULD I BE A DOUBLE?
                 break;
         }
         return result;
     }
 }
 
-class Node{
+class Node {
     private Node left;
     private Node right;
-    private int value;
-    private String name;
+    private ValueNamePair data;
 
-    public Node(String name,int value){
-        this.value = value;
-        this.name = name;
+    public Node(ValueNamePair data) {
+        this.data = data;
         left = null;
         right = null;
     }
 
     /*a block of getters and setters*/
-    public int getValue() { return value; }
-    public String getName() { return name; }
-    public Node getLeft() { return left; }
-    public Node getRight() { return right; }
-    public void setLeft(Node left) { this.left = left; }
-    public void setRight(Node right) { this.right = right; }
+    public ValueNamePair getData() {
+        return data;
+    }
+
+    public Node getLeft() {
+        return left;
+    }
+
+    public Node getRight() {
+        return right;
+    }
+
+    public void setLeft(Node left) {
+        this.left = left;
+    }
+
+    public void setRight(Node right) {
+        this.right = right;
+    }
 }
 
-class Table{
+class Table {
 
     Node root;
 
-    public Table(){
+    public Table() {
         root = null;
     }
 
-    public int search(String key){
-
+    public ValueNamePair search(String key) {
+        Node curr = root;
+        while (curr != null && curr.getData().name.compareTo(key)!=0) {
+            if (curr.getData().name.compareTo(key)<0) {
+                curr = curr.getLeft();
+            } else {
+                curr = curr.getRight();
+            }
+        }
+        if (curr == null) {
+            //failed to find the item, add to error
+            return null;
+        } else {
+            return curr.getData();
+        }
     }
 
-    public void insert(String name, int value){
+    public void insert(String name, int value) {
+        Node curr = root;
+        Node prev = null;
+        if (root == null) {
+            root = new Node(new ValueNamePair(value, name));
+        } else {
+            while (curr != null && curr.getData().name.compareTo(name)!=0) {
+                if (curr.getData().name.compareTo(name)<0) {
+                    curr = curr.getLeft();
+                } else {
+                    curr = curr.getRight();
+                }
+            }
+            if (curr == null) {
+                if (prev.getData().name.compareTo(name)>0) {
+                    prev.setLeft(new Node(new ValueNamePair(value, name)));
+                } else {
+                    prev.setRight(new Node(new ValueNamePair(value, name)));
+                }
+            }
+        }
+    }
+
+    public void printTable() {
 
     }
 }
 
+class ValueNamePair{
+    public int value;
+    public String name;
+    public ValueNamePair(int value, String name){
+        this.value=value;
+        this.name=name;
+    }
+}
