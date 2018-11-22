@@ -24,12 +24,9 @@ public class A4MorrowLuke {
 }
 
 class Controller {
-    private final int MISSINGEQUALS =0;
-    private final int UNDECLAREDVARIABLE=1;
     private Scanner fileReader;
     private Table mainTable;
     private String errors = "";
-    private boolean[] errorFlags = new boolean[3];
 
     public Controller() {
         Scanner inputReader = new Scanner(System.in);
@@ -48,30 +45,30 @@ class Controller {
     }
 
     public void processFile() {
-        int numPrograms = fileReader.nextInt();
-        fileReader.nextLine();
-
-        String line = fileReader.nextLine();
-        for (int i = 0; i < numPrograms; i++) {
-            System.out.println("\nLenert Program " + (i+1) +
-                    "\n-----------------");
-            do {
-                processLine(line);
-                line = fileReader.nextLine();
-            } while (!line.equals("Q"));
-            System.out.println("Error Messages: \n" + errors);
-            System.out.println("Final values of the variables: \n");
-            mainTable.printTable();
-            mainTable = new Table();
-            errors = "";
+        if(fileReader!=null) {
+            int numPrograms = fileReader.nextInt();
+            String line = fileReader.nextLine();
+            for (int i = 0; i < numPrograms; i++) {//process file loop
+                System.out.println("\nLenert Program " + (i + 1) +
+                        "\n-----------------");
+                do {
+                    processLine(line);
+                    line = fileReader.nextLine();
+                } while (!line.equals("Q"));//process program loop
+                System.out.println("Error Messages: \n" + errors);
+                System.out.println("Final values of the variables: \n");
+                mainTable.printTable();
+                mainTable = new Table();
+                errors = "";
+            }
+            System.out.println("\n---------------------");// the last line before end of main program
         }
-        System.out.println("\n---------------------");// the last line before end of main program
-
     }
 
     private void processLine(String s) {
         String[] variables = trimAndSplit(s);
-        if(variables.length>2) {
+
+        if(variables.length>2) {//there is, in fact, something on the line
             ValueNamePair temp;
             boolean errorFound = false;
             String variableName = variables[0];//first token
@@ -80,22 +77,18 @@ class Controller {
             int firstConstant = Integer.MAX_VALUE;
             int secondConstant = 0;
 
-
-            if (!variables[1].equals("=")) {
-                errors += "Incorrect placement of assignment operator\n";
-            }
             try {
                 firstConstant = Integer.parseInt(firstString);//turn string into number
             } catch (NumberFormatException e1) {    //firstRightVariable is a key
                 temp = mainTable.search(firstString);//turn key into number
                 if (temp == null) {
-                    errors += "uses variable before its declaration. \n";
+                    errors += "Invalid input line: variable \""+firstString+"\" is used before its declaration in \""+s+"\"\n";
                     errorFound = true;
                 } else {
                     firstConstant = temp.value;
                 }
             }
-            if (variables.length > 4) {
+            if (variables.length > 4) {//there are two right side strings and an operator
                 String operator = variables[3];
                 String secondString = variables[4];//second token
                 try {
@@ -103,7 +96,7 @@ class Controller {
                 } catch (NumberFormatException e1) {    //secondRightVariable is a key
                     temp = mainTable.search(secondString);//turn key into number
                     if (temp == null) {//turn key into number
-                        errors += "uses variable before its declaration. \n";
+                        errors += "Invalid input line: variable \""+secondString+"\" is used before its declaration in \""+s+"\"\n";
                         errorFound = true;
                     } else {
                         secondConstant = temp.value;
@@ -111,12 +104,17 @@ class Controller {
                 }
                 if (!errorFound) {
                     result = operatorProcessing(firstConstant, secondConstant, operator);
-                }
-            } else {
+                }//do nothing if an error has been found
+            } else {//if there is one item
                 result = firstConstant;
             }
-            if (!errorFound && result != Integer.MAX_VALUE) {
-                mainTable.insert(variableName, result);
+            if (!errorFound && result != Integer.MAX_VALUE) {//if no errors occured
+                ValueNamePair searchResult = mainTable.search(variableName);
+                if(searchResult==null) {
+                    mainTable.insert(variableName, result);
+                }else{
+                    searchResult.value=result;
+                }
             }
         }
     }
@@ -134,7 +132,7 @@ class Controller {
                 result = a * b;
                 break;
             case "/":
-                result = a / b;//SHOULD I BE A DOUBLE?
+                result = a / b;
                 break;
         }
         if (result == Integer.MAX_VALUE) {
@@ -236,8 +234,6 @@ class Table {
                 } else {
                     prev.setRight(new Node(new ValueNamePair(value, name)));
                 }
-            }else{
-                curr.getData().value = value;
             }
         }
     }
