@@ -24,9 +24,12 @@ public class A4MorrowLuke {
 }
 
 class Controller {
+    private final int MISSINGEQUALS =0;
+    private final int UNDECLAREDVARIABLE=1;
     private Scanner fileReader;
     private Table mainTable;
     private String errors = "";
+    private boolean[] errorFlags = new boolean[3];
 
     public Controller() {
         Scanner inputReader = new Scanner(System.in);
@@ -37,6 +40,7 @@ class Controller {
         System.out.println("\n\n");
         try {
             fileReader = new Scanner(fileName);
+
         } catch (FileNotFoundException e) {
             System.out.println("Failed to open file: " + e);
         }
@@ -50,23 +54,23 @@ class Controller {
         String line = fileReader.nextLine();
         for (int i = 0; i < numPrograms; i++) {
             System.out.println("\nLenert Program " + (i+1) +
-                    "-----------------");
+                    "\n-----------------");
             do {
                 processLine(line);
                 line = fileReader.nextLine();
             } while (!line.equals("Q"));
             System.out.println("Error Messages: \n" + errors);
-            System.out.println("Final values of the variables: \n\n");
+            System.out.println("Final values of the variables: \n");
             mainTable.printTable();
             mainTable = new Table();
             errors = "";
         }
-
+        System.out.println("\n---------------------");// the last line before end of main program
 
     }
 
     private void processLine(String s) {
-        String[] variables = s.split(" ");
+        String[] variables = trimAndSplit(s);
         if(variables.length>2) {
             ValueNamePair temp;
             boolean errorFound = false;
@@ -91,7 +95,7 @@ class Controller {
                     firstConstant = temp.value;
                 }
             }
-            if (variables.length > 3) {
+            if (variables.length > 4) {
                 String operator = variables[3];
                 String secondString = variables[4];//second token
                 try {
@@ -138,6 +142,16 @@ class Controller {
         }
         return result;
     }
+
+    private String[] trimAndSplit(String s){
+        String[] result;
+        String temp = s.trim();
+        result=temp.split("\\s+");//an alternative for the space delimiter
+        for(int i = 0; i<result.length;i++){
+            result[i] = result[i].trim();
+        }
+        return result;
+    }
 }
 
 class Node {
@@ -152,7 +166,7 @@ class Node {
     }
 
     public String toString() {
-        return (data.name + ":\t" + data.value + "\n");
+        return (data.name + ": " + data.value + "\n");
     }
 
     /*a block of getters and setters*/
@@ -235,7 +249,7 @@ class Table {
     private void printTable(Node curr) {
         if (curr != null) {
             printTable(curr.getLeft());
-            System.out.println(curr);
+            System.out.print(curr);
             printTable(curr.getRight());
         }
     }
