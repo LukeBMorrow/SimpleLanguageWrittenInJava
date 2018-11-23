@@ -15,18 +15,22 @@
       <file leaf-file-name="A4MorrowLuke.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/A4MorrowLuke.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="64" column="9" lean-forward="false" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+            <state relative-caret-position="271">
+              <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
               <folding>
-                <element signature="e#0#8154#0" expanded="true" />
+                <element signature="e#0#10040#0" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="class#A4MorrowLuke#0" expanded="false" />
+                <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+                <element signature="class#Controller#0" expanded="false" />
                 <element signature="method#processLine#0;class#Controller#0" expanded="false" />
                 <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
                 <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
                 <element signature="class#Node#0" expanded="false" />
+                <element signature="method#Node#0;class#Node#0" expanded="false" />
                 <element signature="class#Table#0" expanded="false" />
                 <element signature="method#search#0;class#Table#0" expanded="false" />
+                <element signature="method#insert#0;class#Table#0" expanded="false" />
                 <element signature="method#printTable#1;class#Table#0" expanded="false" />
                 <element signature="class#ValueNamePair#0" expanded="false" />
               </folding>
@@ -55,8 +59,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-36" />
-    <option name="y" value="-16" />
+    <option name="x" value="128" />
+    <option name="y" value="-18" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -229,8 +233,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33722162" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0148462355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -239,8 +243,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -258,12 +262,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/A4MorrowLuke.java</url>
-          <line>200</line>
+          <line>219</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="22" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -273,15 +277,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#8154#0" expanded="true" />
+            <element signature="e#0#10040#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="class#A4MorrowLuke#0" expanded="false" />
+            <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+            <element signature="class#Controller#0" expanded="false" />
             <element signature="method#processLine#0;class#Controller#0" expanded="false" />
             <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
             <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
             <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
             <element signature="class#Table#0" expanded="false" />
             <element signature="method#search#0;class#Table#0" expanded="false" />
+            <element signature="method#insert#0;class#Table#0" expanded="false" />
             <element signature="method#printTable#1;class#Table#0" expanded="false" />
             <element signature="class#ValueNamePair#0" expanded="false" />
           </folding>
@@ -293,15 +301,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#8154#0" expanded="true" />
+            <element signature="e#0#10040#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="class#A4MorrowLuke#0" expanded="false" />
+            <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+            <element signature="class#Controller#0" expanded="false" />
             <element signature="method#processLine#0;class#Controller#0" expanded="false" />
             <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
             <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
             <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
             <element signature="class#Table#0" expanded="false" />
             <element signature="method#search#0;class#Table#0" expanded="false" />
+            <element signature="method#insert#0;class#Table#0" expanded="false" />
             <element signature="method#printTable#1;class#Table#0" expanded="false" />
             <element signature="class#ValueNamePair#0" expanded="false" />
           </folding>
@@ -313,15 +325,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#8154#0" expanded="true" />
+            <element signature="e#0#10040#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="class#A4MorrowLuke#0" expanded="false" />
+            <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+            <element signature="class#Controller#0" expanded="false" />
             <element signature="method#processLine#0;class#Controller#0" expanded="false" />
             <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
             <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
             <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
             <element signature="class#Table#0" expanded="false" />
             <element signature="method#search#0;class#Table#0" expanded="false" />
+            <element signature="method#insert#0;class#Table#0" expanded="false" />
             <element signature="method#printTable#1;class#Table#0" expanded="false" />
             <element signature="class#ValueNamePair#0" expanded="false" />
           </folding>
@@ -333,15 +349,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#8154#0" expanded="true" />
+            <element signature="e#0#10040#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="class#A4MorrowLuke#0" expanded="false" />
+            <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+            <element signature="class#Controller#0" expanded="false" />
             <element signature="method#processLine#0;class#Controller#0" expanded="false" />
             <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
             <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
             <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
             <element signature="class#Table#0" expanded="false" />
             <element signature="method#search#0;class#Table#0" expanded="false" />
+            <element signature="method#insert#0;class#Table#0" expanded="false" />
             <element signature="method#printTable#1;class#Table#0" expanded="false" />
             <element signature="class#ValueNamePair#0" expanded="false" />
           </folding>
@@ -353,15 +373,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#8154#0" expanded="true" />
+            <element signature="e#0#10040#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="class#A4MorrowLuke#0" expanded="false" />
+            <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+            <element signature="class#Controller#0" expanded="false" />
             <element signature="method#processLine#0;class#Controller#0" expanded="false" />
             <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
             <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
             <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
             <element signature="class#Table#0" expanded="false" />
             <element signature="method#search#0;class#Table#0" expanded="false" />
+            <element signature="method#insert#0;class#Table#0" expanded="false" />
             <element signature="method#printTable#1;class#Table#0" expanded="false" />
             <element signature="class#ValueNamePair#0" expanded="false" />
           </folding>
@@ -373,15 +397,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#8154#0" expanded="true" />
+            <element signature="e#0#10040#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="class#A4MorrowLuke#0" expanded="false" />
+            <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+            <element signature="class#Controller#0" expanded="false" />
             <element signature="method#processLine#0;class#Controller#0" expanded="false" />
             <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
             <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
             <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
             <element signature="class#Table#0" expanded="false" />
             <element signature="method#search#0;class#Table#0" expanded="false" />
+            <element signature="method#insert#0;class#Table#0" expanded="false" />
             <element signature="method#printTable#1;class#Table#0" expanded="false" />
             <element signature="class#ValueNamePair#0" expanded="false" />
           </folding>
@@ -393,15 +421,67 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#8154#0" expanded="true" />
+            <element signature="e#0#10040#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="class#A4MorrowLuke#0" expanded="false" />
+            <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+            <element signature="class#Controller#0" expanded="false" />
             <element signature="method#processLine#0;class#Controller#0" expanded="false" />
             <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
             <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
             <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
             <element signature="class#Table#0" expanded="false" />
             <element signature="method#search#0;class#Table#0" expanded="false" />
+            <element signature="method#insert#0;class#Table#0" expanded="false" />
+            <element signature="method#printTable#1;class#Table#0" expanded="false" />
+            <element signature="class#ValueNamePair#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A4MorrowLuke.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10040#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="class#A4MorrowLuke#0" expanded="false" />
+            <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+            <element signature="class#Controller#0" expanded="false" />
+            <element signature="method#processLine#0;class#Controller#0" expanded="false" />
+            <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
+            <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
+            <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
+            <element signature="class#Table#0" expanded="false" />
+            <element signature="method#search#0;class#Table#0" expanded="false" />
+            <element signature="method#insert#0;class#Table#0" expanded="false" />
+            <element signature="method#printTable#1;class#Table#0" expanded="false" />
+            <element signature="class#ValueNamePair#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A4MorrowLuke.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10040#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="class#A4MorrowLuke#0" expanded="false" />
+            <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+            <element signature="class#Controller#0" expanded="false" />
+            <element signature="method#processLine#0;class#Controller#0" expanded="false" />
+            <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
+            <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
+            <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
+            <element signature="class#Table#0" expanded="false" />
+            <element signature="method#search#0;class#Table#0" expanded="false" />
+            <element signature="method#insert#0;class#Table#0" expanded="false" />
             <element signature="method#printTable#1;class#Table#0" expanded="false" />
             <element signature="class#ValueNamePair#0" expanded="false" />
           </folding>
@@ -429,26 +509,30 @@
         <state relative-caret-position="189">
           <caret line="2336" column="0" lean-forward="false" selection-start-line="2336" selection-start-column="0" selection-end-line="2336" selection-end-column="0" />
           <folding>
-            <element signature="e#94598#94599#0" expanded="true" />
-            <element signature="e#94636#94637#0" expanded="true" />
+            <element signature="e#94598#94599#0" expanded="false" />
+            <element signature="e#94636#94637#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/A4MorrowLuke.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="64" column="9" lean-forward="false" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+        <state relative-caret-position="271">
+          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
           <folding>
-            <element signature="e#0#8154#0" expanded="true" />
+            <element signature="e#0#10040#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="class#A4MorrowLuke#0" expanded="false" />
+            <element signature="method#main#0;class#A4MorrowLuke#0" expanded="false" />
+            <element signature="class#Controller#0" expanded="false" />
             <element signature="method#processLine#0;class#Controller#0" expanded="false" />
             <element signature="method#operatorProcessing#0;class#Controller#0" expanded="false" />
             <element signature="method#trimAndSplit#0;class#Controller#0" expanded="false" />
             <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
             <element signature="class#Table#0" expanded="false" />
             <element signature="method#search#0;class#Table#0" expanded="false" />
+            <element signature="method#insert#0;class#Table#0" expanded="false" />
             <element signature="method#printTable#1;class#Table#0" expanded="false" />
             <element signature="class#ValueNamePair#0" expanded="false" />
           </folding>
